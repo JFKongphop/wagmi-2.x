@@ -1,16 +1,10 @@
 import { http, createConfig } from 'wagmi'
-import { mainnet, sepolia } from 'wagmi/chains'
+import { holesky } from 'wagmi/chains'
 
 export const config = createConfig({
-  chains: [mainnet, sepolia],
-  connectors: [
-    // injected(),
-    // coinbaseWallet(),
-    // walletConnect({ projectId: import.meta.env.VITE_WC_PROJECT_ID }),
-  ],
+  chains: [holesky],
   transports: {
-    [mainnet.id]: http(),
-    [sepolia.id]: http(),
+    [holesky.id]: http(),
   },
 })
 
