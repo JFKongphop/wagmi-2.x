@@ -11,7 +11,7 @@ import type {
   Transport } from 'viem';
 import type { Config } from 'wagmi';
 
-export function clientToSigner(client: Client<Transport, Chain, Account>) {
+export const clientToSigner = (client: Client<Transport, Chain, Account>) => {
   const { account, chain, transport } = client;
   const network = {
     chainId: chain.id,
@@ -23,7 +23,7 @@ export function clientToSigner(client: Client<Transport, Chain, Account>) {
   return signer;
 }
 
-export function useEthersSigner({ chainId }: { chainId?: number } = {}) {
+export const useEthersSigner = ({ chainId }: { chainId?: number } = {}) => {
   const { data: client } = useConnectorClient<Config>({ chainId });
   return useMemo(() => (
     client 
