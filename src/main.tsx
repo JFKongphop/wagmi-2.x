@@ -7,6 +7,7 @@ import App from './App.tsx'
 import { config } from './wagmi.ts'
 
 import './index.css'
+import { RainbowKitProvider } from '@rainbow-me/rainbowkit'
 
 
 const queryClient = new QueryClient()
@@ -15,7 +16,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <App />
+        <RainbowKitProvider>
+          <App />
+        </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
   </React.StrictMode>,
